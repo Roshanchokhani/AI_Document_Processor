@@ -227,14 +227,30 @@ curl -X POST http://localhost:8000/ask \
   - Modern async support
   - Type hints improve code quality
 
-### 6. Groq API
-- **Decision**: Use Groq for AI inference
-- **Reason**:
-  - FREE tier available (30 requests/minute)
-  - No credit card required
-  - Ultra-fast inference (LPU chips)
-  - High quality Llama models
-  - Easy to integrate
+### 6. AI Provider Selection: Groq API
+
+- **Decision**: Use Groq API with Llama 3.1 model for AI inference
+- **Alternatives Considered**:
+
+  | Provider | Evaluation | Outcome |
+  |----------|------------|---------|
+  | **OpenAI** | Industry standard, excellent quality | Requires paid subscription; no free tier available for API access |
+  | **Google Gemini** | Free tier available | Encountered persistent quota limitations (`limit: 0` errors) on free tier, making it unreliable for development and testing |
+  | **Groq** | Free tier with generous limits | Selected - reliable, fast, and fully functional |
+
+- **Why Groq Works for This Use Case**:
+  - Provides the **same core functionality** as OpenAI/Gemini for document Q&A
+  - Supports **chat completions API** with system/user prompts (identical pattern to OpenAI)
+  - Enables **prompt engineering** for answer grounding (low temperature, explicit instructions)
+  - Offers **reliable free tier** (30 requests/minute) suitable for development and demonstration
+  - Uses **Llama 3.1** model which excels at instruction-following and text comprehension
+
+- **Technical Equivalence**:
+  - The AI service implementation uses the same prompt engineering techniques that would work with OpenAI or Gemini
+  - The service layer is designed with abstraction, making it straightforward to swap providers if needed
+  - All core requirements (grounded answers, hallucination prevention, fallback responses) are achieved identically
+
+- **Note**: The architecture supports easy migration to OpenAI or Gemini by modifying only the `ai_service.py` file, demonstrating good separation of concerns
 
 ## Error Handling
 
