@@ -1,0 +1,15 @@
+# Render Blueprint - Auto-configures deployment settings
+# Documentation: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: ai-document-processor
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false  # You'll set this manually in Render dashboard
+      - key: PYTHON_VERSION
+        value: 3.11.0
