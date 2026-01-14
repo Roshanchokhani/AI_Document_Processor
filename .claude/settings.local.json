@@ -3,7 +3,10 @@
     "allow": [
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: AI-Powered Document Q&A Backend Service\n\nFeatures:\n- PDF document upload and text extraction\n- AI-powered question answering using Groq API\n- Answer grounding to prevent hallucination\n- FastAPI with automatic OpenAPI documentation\n- In-memory document storage\n- Comprehensive error handling\n\nTech stack: Python, FastAPI, Groq \\(Llama 3.1\\), PyPDF2, Pydantic\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: AI-Powered Document Q&A Backend Service\n\nFeatures:\n- PDF document upload and text extraction\n- AI-powered question answering using Groq API\n- Answer grounding to prevent hallucination\n- FastAPI with automatic OpenAPI documentation\n- In-memory document storage\n- Comprehensive error handling\n\nTech stack: Python, FastAPI, Groq \\(Llama 3.1\\), PyPDF2, Pydantic\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
